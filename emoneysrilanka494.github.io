@@ -105,7 +105,22 @@ canvas{
   </div>
 
 </div>
+</script>
+<!-- AI Connection Script -->
+<script>
+const WORKER_URL = "https://yt-tools-ai.piyumibagya34.workers.dev";
 
+async function callAI(prompt) {
+  const res = await fetch(WORKER_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt })
+  });
+
+  const data = await res.json();
+  return data.text;
+}
+</script>
 <script>
 /* ================= CONFIG ================= */
 const WORKER_URL="https://yt-tools-ai.piyumibagya34.workers.dev";
@@ -192,22 +207,7 @@ function downloadThumb(){
   a.download="thumbnail.png";
   a.click();
 }
-</script>
-<!-- AI Connection Script -->
-<script>
-const WORKER_URL = "https://yt-tools-ai.piyumibagya34.workers.dev";
 
-async function callAI(prompt) {
-  const res = await fetch(WORKER_URL, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ prompt })
-  });
-
-  const data = await res.json();
-  return data.text;
-}
-</script>
 
 <!-- Existing Script (DO NOT DELETE) -->
 <script>
